@@ -1,0 +1,28 @@
+== About ==
+PDNSOps2 is a Web-based application which aids in administrator of domains and 
+records for PowerDNS running the MySQL and PostgreSQL backend. PDNSOps2 is 
+targeted mainly toward the individual domain owners and small businesses, but 
+should be robust enough to be used in a larger capacity by an ISP or large big 
+host. For those who may not know, PowerDNS is a domain name server application,
+much like BIND, but offering alternative backends for the storage of domain 
+information.
+
+PDNSOps2 is a complete, ground up, rewrite of the original PDNSOps (Formery
+PDNSAdministrator) code base.  Mk 2 is based on the Yii Framework and uses PHP
+PDO to better support all potential database backends.
+
+== Links ==
+Homepage: http://pdnsops.com/
+PDNSOps2 code: https://github.com/pdnsops2/pdnsops
+PDNSOps (Mk 1) code: https://code.google.com/p/pdnsops/
+Google Groups: https://groups.google.com/group/pdnsops
+Twitter: https://twitter.com/#!/pdnsops
+Blog: http://snowulf.com/category/pdnsops/
+PowerDNS: http://wiki.powerdns.com/trac
+
+== License ==
+This software is released under the GNU General Public License (GPL). For the
+terms of the license, see the file docs/license.txt included in this
+distribution. The license is also available in many languages at
+http://www.gnu.org
+
