@@ -1,2 +1,3 @@
 assets/*
 !.gitignore
+.DS_Store
