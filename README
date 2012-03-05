@@ -21,8 +21,8 @@ Blog: http://snowulf.com/category/pdnsops/
 PowerDNS: http://wiki.powerdns.com/trac
 
 == License ==
-This software is released under the GNU General Public License (GPL). For the
-terms of the license, see the file docs/license.txt included in this
+This software is released under the GNU General Public License (GPL) v2. For the
+terms of the license, see the file LICENSE included in this
 distribution. The license is also available in many languages at
-http://www.gnu.org
+http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 

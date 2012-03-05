@@ -51,8 +51,8 @@
 	<div class="clear"></div>
 
 	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
+		PDNSOps licensed under <a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">GNU GPL v2</a> &copy; 
+		<?php echo date('Y'); ?> - The <a href="http://pdnsops.com/">PDNSOps Team</a>.<br/>
 		<?php echo Yii::powered(); ?>
 	</div><!-- footer -->
 
