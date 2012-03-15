@@ -1,3 +1,5 @@
 assets/*
 !.gitignore
 .DS_Store
+protected/config/main.php
+protected/runtime/*
