@@ -24,6 +24,10 @@ class Domain extends CActiveRecord
 	public $add_default_mx_record;
 	
 	public $add_default_cname_records;
+	
+	public $copy_records;
+	
+	public $copy_permissions;
 
 	/**
 	 * Returns the static model of the specified AR class.
@@ -64,7 +68,7 @@ class Domain extends CActiveRecord
 			array('type', 'length', 'max'=>6),
 			array('master', 'length', 'max'=>15),
 			array('master', 'ext.validators.FIpValidator', 'version' => 'ipv4'),
-			array('add_default_ns_records, add_default_mx_record, add_default_cname_records', 'boolean'),
+			array('add_default_ns_records, add_default_mx_record, add_default_cname_records, copy_records, copy_permissions', 'boolean'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, name, master, last_check, type, notified_serial, account', 'safe', 'on'=>'search'),
@@ -99,6 +103,8 @@ class Domain extends CActiveRecord
 			'add_default_ns_records' => 'Add default NS records',
 			'add_default_mx_record' => 'Add default MX record',
 			'add_default_cname_records' => 'Add default CNAME records',			
+			'copy_records' => 'Copy records?',
+			'copy_permissions' => 'Copy permissions?',
 		);
 	}
 

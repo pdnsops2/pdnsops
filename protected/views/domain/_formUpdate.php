@@ -23,6 +23,7 @@
 	
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Update'); ?>
+		<?php echo CHtml::link('Copy',$this->createURL('domain/copy', array('id'=>$model->id))); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

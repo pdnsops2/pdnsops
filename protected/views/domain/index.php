@@ -59,7 +59,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		array('name'=>'last_check','value'=>'date("Y-m-d H:i:s", $data->last_check)'),
 		array(
 			'class'=>'CButtonColumn',
-			'template'=>'{update}{delete}',
+			'buttons'=>	array(
+				'copy' => array(
+					'url' => 'Yii::app()->createUrl("domain/copy", array("id" => $data[\'id\']))',
+				),    //copy button
+			),
+			'template'=>'{update}{copy}{delete}',
 		),
 	),
 )); ?>

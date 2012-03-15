@@ -27,7 +27,7 @@ class DomainController extends Controller
 	{
 		return array(
 			array('allow',
-				'actions'=>array('index','create','createReverse','update','delete'),
+				'actions'=>array('index','create','createReverse','update','delete','copy'),
 				'roles'=>array('user','admin'),
 			),
 			array('deny',
@@ -339,6 +339,69 @@ class DomainController extends Controller
 		));
 	}
 
+	/**
+	 * Creates a deep copy of a domain and it's associated records.
+	 */
+	public function actionCopy($id)
+	{
+		$oldmodel=$this->loadModel($id);
+
+		$model=new Domain;
+		$model->name=$oldmodel->name;
+		$model->master=$oldmodel->master;
+		$model->last_check=$oldmodel->last_check;
+		$model->type=$oldmodel->type;
+		$model->notified_serial=$oldmodel->notified_serial;
+		$model->account=$oldmodel->account;
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['Domain']))
+		{
+			$model->attributes=$_POST['Domain'];
+			
+			if($model->save())
+			{
+				// copy records
+				if ($model->copy_records == 1)
+				{
+					foreach ($oldmodel->records as $or)
+					{
+						$record=new Record;
+						$record->domain_id=$model->id;
+						$record->name=$or->name;
+						$record->type=$or->type;
+						$record->content=$or->content;
+						$record->ttl=$or->ttl;
+						$record->prio=$or->prio;
+						$record->change_date=$or->change_date;
+						$record->save();
+					}
+				}
+				
+				// copy permissions
+				if ($model->copy_permissions == 1)
+				{
+					foreach ($oldmodel->users as $user)
+					{
+						$perm=new DomainUser;
+						$perm->domain_id=$model->id;
+						$perm->user_id=$user->id;
+						$perm->save();
+					}
+				}
+			
+				Yii::app()->audit->log('Copied domain: ' . $model->id);
+				$this->redirect(array('update','id'=>$model->id));
+			}
+		}
+			
+		$this->render('copy',array(
+				'model'=>$model,
+		));
+	}
+	
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
