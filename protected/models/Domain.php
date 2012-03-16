@@ -94,17 +94,17 @@ class Domain extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'name' => 'Name',
-			'ip_address' => 'IP Address',
-			'master' => 'Master IP',
-			'last_check' => 'Last Check',
-			'type' => 'Type',
-			'add_default_ns_records' => 'Add default NS records',
-			'add_default_mx_record' => 'Add default MX record',
-			'add_default_cname_records' => 'Add default CNAME records',			
-			'copy_records' => 'Copy records?',
-			'copy_permissions' => 'Copy permissions?',
+			'id'=>Yii::t('app','domain.id'),
+			'name'=>Yii::t('app','domain.name'),
+			'ip_address'=>Yii::t('app','domain.ipAddress'),
+			'master'=>Yii::t('app','domain.masterIP'),
+			'last_check'=>Yii::t('app','domain.lastCheck'),
+			'type'=>Yii::t('app','domain.type'),
+			'add_default_ns_records'=>Yii::t('app','domain.addDefaultNSRecords'),
+			'add_default_mx_record'=>Yii::t('app','domain.addDefaultMXRecord'),
+			'add_default_cname_records'=>Yii::t('app','domain.addDefaultCNAMERecords'),			
+			'copy_records'=>Yii::t('app','domain.copyRecords'),
+			'copy_permissions'=>Yii::t('app','domain.copyPermissions'),
 		);
 	}
 

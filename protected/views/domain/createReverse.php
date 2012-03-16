@@ -1,16 +1,16 @@
 <?php
 $this->breadcrumbs=array(
-	'Domains'=>array('index'),
-	'Create Reverse Domain',
+	Yii::t('app','page.domains')=>array('index'),
+	Yii::t('app','domain.createReverse'),
 );
 
 $this->menu=array(
-	array('label'=>'List Domain', 'url'=>array('index')),
-	array('label'=>'Create Domain', 'url'=>array('create')),
-	array('label'=>'Create Reverse Domain', 'url'=>array('createReverse')),
+	array('label'=>Yii::t('app','domain.listDomains'),'url'=>array('index')),
+	array('label'=>Yii::t('app','domain.createDomain'),'url'=>array('create')),
+	array('label'=>Yii::t('app','domain.createReverse'),'url'=>array('createReverse')),
 );
 ?>
 
-<h1>Create Reverse Domain</h1>
+<h1><?php echo Yii::t('app','domain.createReverse'); ?></h1>
 
 <?php echo $this->renderPartial('_formCreateReverse', array('model'=>$model)); ?>

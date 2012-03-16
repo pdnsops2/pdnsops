@@ -1,6 +1,6 @@
 <?php
 $this->breadcrumbs=array(
-	'Logs',
+	Yii::t('app','page.logs'),
 );
 
 $this->menu=array(
@@ -20,12 +20,9 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Logs</h1>
+<h1><?php echo Yii::t('app','log.manage'); ?></h1>
 
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
+<p><?php echo Yii::t('app','page.searchOperators'); ?></p>
 
 <?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">

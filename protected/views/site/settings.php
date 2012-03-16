@@ -1,11 +1,11 @@
 <?php
-$this->pageTitle=Yii::app()->name . ' - Settings';
+$this->pageTitle=Yii::app()->name . ' - ' . Yii::t('app','page.settings');
 $this->breadcrumbs=array(
-	'Settings',
+	Yii::t('app','page.settings'),
 );
 ?>
 
-<h1>Settings</h1>
+<h1><?php echo Yii::t('app','page.settings'); ?></h1>
 
 <?php if(Yii::app()->user->hasFlash('settings')): ?>
 
@@ -15,9 +15,7 @@ $this->breadcrumbs=array(
 
 <?php else: ?>
 
-<p>
-Change global system settings.
-</p>
+<p><?php echo Yii::t('app','setting.change'); ?></p>
 
 <div class="form">
 
@@ -29,7 +27,7 @@ Change global system settings.
 	),
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note"><?php echo Yii::t('app','page.requiredFields'); ?></p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -113,7 +111,7 @@ Change global system settings.
 	
 	
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Submit'); ?>
+		<?php echo CHtml::submitButton(Yii::t('app','page.update')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

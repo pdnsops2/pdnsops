@@ -64,10 +64,10 @@ class Log extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'user_id' => 'User',
-			'action' => 'Action',
-			'created' => 'Created',
+			'id'=>Yii::t('app','log.id'),
+			'user_id' =>Yii::t('app','log.user'),
+			'action' =>Yii::t('app','log.action'),
+			'created' =>Yii::t('app','log.created'),
 		);
 	}
 

@@ -37,7 +37,7 @@ class Supermaster extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('ip, nameserver', 'required'),
-			array('ip', 'unique', 'message' => 'IP already in use.'),
+			array('ip', 'unique', 'message'=>Yii::t('app','supermaster.ipInUse')),
 			array('ip', 'length', 'max'=>15),
 			array('ip', 'ext.validators.FIpValidator', 'version' => 'ipv4'),
 			array('nameserver', 'length', 'max'=>255),
@@ -65,9 +65,9 @@ class Supermaster extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'ip' => 'IP',
-			'nameserver' => 'Nameserver',
-			'account' => 'Account',
+			'ip'=>Yii::t('app','supermaster.ip'),
+			'nameserver'=>Yii::t('app','supermaster.nameserver'),
+			'account'=>Yii::t('app','supermaster.account'),
 		);
 	}
 

@@ -28,14 +28,14 @@
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'Domains', 'url'=>array('/domain/index'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Users', 'url'=>array('/user/index'), 'visible'=>!Yii::app()->user->isGuest && Yii::app()->user->getState('isAdmin')),
-				array('label'=>'Logs', 'url'=>array('/log/index'), 'visible'=>!Yii::app()->user->isGuest && Yii::app()->user->getState('isAdmin')),
-				array('label'=>'Supermasters', 'url'=>array('/supermaster/index'), 'visible'=>!Yii::app()->user->isGuest && Yii::app()->user->getState('isAdmin')),
-				array('label'=>'Settings', 'url'=>array('/site/settings'), 'visible'=>!Yii::app()->user->isGuest && Yii::app()->user->getState('isAdmin')),
-				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+				array('label'=>Yii::t('app','page.home'), 'url'=>array('/site/index')),
+				array('label'=>Yii::t('app','page.domains'), 'url'=>array('/domain/index'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>Yii::t('app','page.users'), 'url'=>array('/user/index'), 'visible'=>!Yii::app()->user->isGuest && Yii::app()->user->getState('isAdmin')),
+				array('label'=>Yii::t('app','page.logs'), 'url'=>array('/log/index'), 'visible'=>!Yii::app()->user->isGuest && Yii::app()->user->getState('isAdmin')),
+				array('label'=>Yii::t('app','page.supermasters'), 'url'=>array('/supermaster/index'), 'visible'=>!Yii::app()->user->isGuest && Yii::app()->user->getState('isAdmin')),
+				array('label'=>Yii::t('app','page.settings'), 'url'=>array('/site/settings'), 'visible'=>!Yii::app()->user->isGuest && Yii::app()->user->getState('isAdmin')),
+				array('label'=>Yii::t('app','page.login'), 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+				array('label'=>Yii::t('app','page.logout'). ' ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
 		)); ?>
 	</div><!-- mainmenu -->
@@ -50,7 +50,7 @@
 	<div class="clear"></div>
 
 	<div id="footer">
-		PDNSOps licensed under <a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">GNU GPL v2</a> &copy; 
+		<?php echo Yii::t('app', 'page.footer'); ?>
 		<?php echo date('Y'); ?> - The <a href="http://pdnsops.com/">PDNSOps Team</a>.<br/>
 		<?php echo Yii::powered(); ?>
 	</div><!-- footer -->

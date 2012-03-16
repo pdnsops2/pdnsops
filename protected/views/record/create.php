@@ -1,18 +1,18 @@
 <?php
 $this->breadcrumbs=array(
-	'Domains'=>array('domain/index'),
+	Yii::t('app','page.domains')=>array('domain/index'),
 	$model->domain->name=>Yii::app()->createUrl("domain/update", array('id'=>$model->domain->id)),	
-	'Create Record',
+	Yii::t('app','record.create'),
 );
 
 $this->menu=array(
-	array('label'=>'List Domains', 'url'=>array('domain/index')),
-	array('label'=>'Create Domain', 'url'=>array('domain/create')),
-	array('label'=>'Create Reverse Domain', 'url'=>array('domain/createReverse')),
-	array('label'=>'Create Record', 'url'=>Yii::app()->createUrl('record/create', array('domain'=>$model->domain->id))),
+	array('label'=>Yii::t('app','domain.listDomains'),'url'=>array('index')),
+	array('label'=>Yii::t('app','domain.createDomain'),'url'=>array('create')),
+	array('label'=>Yii::t('app','domain.createReverse'),'url'=>array('createReverse')),	
+	array('label'=>Yii::t('app','record.create'),'url'=>Yii::app()->createUrl('record/create', array('domain'=>$model->domain->id))),
 );
 ?>
 
-<h1>Create Record</h1>
+<h1><?php echo Yii::t('app','record.create'); ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model,'user'=>$user)); ?>

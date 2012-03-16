@@ -1,7 +1,7 @@
 <?php
 $this->breadcrumbs=array(
-	'Domains'=>array('index'),
-	'Copy',
+	Yii::t('app','page.domains')=>array('index'),
+	Yii::t('app','domain.copyDomain'),
 );
 
 $this->menu=array(
@@ -11,6 +11,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Copy Domain <?php echo $model->name; ?></h1>
+<h1><?php echo Yii::t('app','domain.copyDomain') . ' ' .$model->name; ?></h1>
 
 <?php echo $this->renderPartial('_formCopy', array('model'=>$model)); ?>

@@ -1,33 +1,53 @@
 <?php
 $this->breadcrumbs=array(
-	'Domains'=>array('index'),
-	'Update',
+	Yii::t('app','page.domains')=>array('index'),
+	Yii::t('app','domain.updateDomain'),
 );
 
 $this->menu=array(
-	array('label'=>'List Domains', 'url'=>array('index')),
-	array('label'=>'Create Domain', 'url'=>array('create')),
-	array('label'=>'Create Reverse Domain', 'url'=>array('createReverse')),
-	array('label'=>'Create Record', 'url'=>Yii::app()->createUrl('record/create', array('domain'=>$model->id))),
+	array('label'=>Yii::t('app','domain.listDomains'),'url'=>array('index')),
+	array('label'=>Yii::t('app','domain.createDomain'),'url'=>array('create')),
+	array('label'=>Yii::t('app','domain.createReverse'),'url'=>array('createReverse')),	
+	array('label'=>Yii::t('app','domain.copyDomain'),'url'=>Yii::app()->createUrl('domain/copy', array('id'=>$model->id))),	
+	array('label'=>Yii::t('app','record.create'),'url'=>Yii::app()->createUrl('record/create', array('domain'=>$model->id))),
 );
 ?>
 
-<h1>Update Domain <?php echo $model->name; ?></h1>
+<h1><?php echo Yii::t('app','domain.updateDomain') . ' ' . $model->name; ?></h1>
 
 <?php echo $this->renderPartial('_formUpdate', array('model'=>$model)); ?>
 
-<h2>Records</h2>
+<h2><?php echo yii::t('app','page.records'); ?></h2>
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'record-grid',
 	'dataProvider'=>new CArrayDataProvider($model->records, array()),
 	'columns'=>array(
-		'name',
-		'type',
-		'content',
-		'ttl',
-		'prio',
-		array('name'=>'change_date','value'=>'date("Y-m-d H:i:s", $data->change_date)'),
+		array(
+			'name'=>'name',
+			'header'=>Yii::t('app','record.name'),
+			),
+		array(
+			'name'=>'type',
+			'header'=>Yii::t('app','record.type'),
+			),
+		array(
+			'name'=>'content',
+			'header'=>Yii::t('app','record.content'),
+			),
+		array(
+			'name'=>'ttl',
+			'header'=>Yii::t('app','record.ttl'),
+			),
+		array(
+			'name'=>'prio',
+			'header'=>Yii::t('app','record.prio'),
+			),
+		array(
+			'name'=>'change_date',
+			'header'=>Yii::t('app','record.change_date'),
+			'value'=>'date("Y-m-d H:i:s", $data->change_date)',
+			),
 		array(
 			'class' => 'CButtonColumn',
 	        'buttons' => array(
@@ -47,17 +67,18 @@ $this->menu=array(
 if (Yii::app()->user->isAdmin)
 {
 ?>
-<h2>Users</h2>
+<h2><?php echo Yii::t('app','page.users'); ?></h2>
 
 <div class="form">
 
-<?php 
-	$domainUser=new DomainUser;
-	$form=$this->beginWidget('CActiveForm', array(
-	'id'=>'permission-form',
-	'action'=>$this->createURL('domainUser/create', array('returnUrl'=>$this->createURL('domain/update', array('id'=>$model->id)))),
-	'enableAjaxValidation'=>false,
-)); ?>
+	<?php 
+		$domainUser=new DomainUser;
+		$form=$this->beginWidget('CActiveForm', array(
+			'id'=>'permission-form',
+			'action'=>$this->createURL('domainUser/create', array('returnUrl'=>$this->createURL('domain/update', array('id'=>$model->id)))),
+			'enableAjaxValidation'=>false,
+		)); 
+	?>
 
 	<?php echo $form->errorSummary($domainUser); ?>
 	
@@ -73,7 +94,7 @@ if (Yii::app()->user->isAdmin)
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Add'); ?>
+		<?php echo CHtml::submitButton(Yii::t('app','page.add')); ?>
 	</div>
 	
 <?php $this->endWidget(); ?>
@@ -85,12 +106,18 @@ $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'user-grid',
 	'dataProvider'=>new CArrayDataProvider($model->users, array()),
 	'columns'=>array(
-		'id',
-		'username',
-		'email',
+		array(
+			'name'=>'username',
+			'header'=>Yii::t('app','user.username'),
+			),
+		array(
+			'name'=>'email',
+			'header'=>Yii::t('app','user.email'),
+			),
 		'admin' => array(
             'name'=>'admin',
-            'value'=>'$data->admin == 1 ? "yes" : "no"',
+			'header'=>Yii::t('app','user.admin'),
+            'value'=>'$data->admin == 1 ? Yii::t(\'yii\',\'yes\') : Yii::t(\'yii\',\'no\')',
         ),
 		array(
 			'class' => 'CButtonColumn',

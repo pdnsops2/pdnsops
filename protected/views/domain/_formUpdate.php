@@ -5,7 +5,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note"><?php echo Yii::t('app','page.requiredFields'); ?></p>
 
 	<?php echo $form->errorSummary($model); ?>
 	
@@ -17,13 +17,12 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'master'); ?>
-		<?php echo $form->textField($model,'master',array('size'=>15,'maxlength'=>15)); ?>&nbsp;<?php echo Yii::t('domain', '(Only for Slave domains)'); ?>
+		<?php echo $form->textField($model,'master',array('size'=>15,'maxlength'=>15)); ?>&nbsp;<?php echo Yii::t('app','domain.onlyForSlave'); ?>
 		<?php echo $form->error($model,'master'); ?>
 	</div>
 	
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Update'); ?>
-		<?php echo CHtml::link('Copy',$this->createURL('domain/copy', array('id'=>$model->id))); ?>
+		<?php echo CHtml::submitButton(Yii::t('app','page.update')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

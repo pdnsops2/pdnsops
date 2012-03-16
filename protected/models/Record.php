@@ -24,9 +24,7 @@ class Record extends CActiveRecord
 	const TYPE_NS = 'NS';
 	
 	const TYPE_CNAME = 'CNAME';
-	
-	const DEFAULT_TTL = 7200;
-	
+		
 	const PRIORITY_DEFAULT = 0;
 	
 	const PRIORITY_MX = 10;
@@ -51,8 +49,7 @@ class Record extends CActiveRecord
 	public function init()
 	{
 		parent::init();
-		// TODO: use setting DEFAULT_TTL
-		$this->ttl = Record::DEFAULT_TTL;
+		$this->ttl = Yii::app()->settings->defaultTTL;
 		$this->prio = Record::PRIORITY_DEFAULT;
 	}
 
@@ -102,14 +99,14 @@ class Record extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'domain_id' => 'Domain',
-			'name' => 'Name',
-			'type' => 'Type',
-			'content' => 'Content',
-			'ttl' => 'Ttl',
-			'prio' => 'Prio',
-			'change_date' => 'Change Date',
+			'id' => Yii::t('app', 'record.id'),
+			'domain_id' => Yii::t('app', 'record.domain'),
+			'name' => Yii::t('app', 'record.name'),
+			'type' => Yii::t('app', 'record.type'),
+			'content' => Yii::t('app', 'record.content'),
+			'ttl' => Yii::t('app', 'record.ttl'),
+			'prio' => Yii::t('app', 'record.prio'),
+			'change_date' => Yii::t('app', 'record.change_date'),
 		);
 	}
 

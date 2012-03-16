@@ -1,20 +1,20 @@
 <?php
 $this->breadcrumbs=array(
-	'Users'=>array('index'),
-	'Update',
+	Yii::t('app','page.users')=>array('index'),
+	Yii::t('app','user.update'),
 );
 
 $this->menu=array(
-	array('label'=>'List User', 'url'=>array('index')),
-	array('label'=>'Create User', 'url'=>array('create')),
+	array('label'=>Yii::t('app','user.list'),'url'=>array('index')),
+	array('label'=>Yii::t('app','user.create'),'url'=>array('create')),
 );
 ?>
 
-<h1>Update User <?php echo $model->username; ?></h1>
+<h1><?php echo Yii::t('app','user.update') . ' ' . $model->username; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
 
-<h2>Domains</h2>
+<h2><?php echo Yii::t('app','page.domains'); ?></h2>
 
 <div class="form">
 
@@ -40,7 +40,7 @@ $this->menu=array(
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Add'); ?>
+		<?php echo CHtml::submitButton(Yii::t('app','page.add')); ?>
 	</div>
 	
 <?php $this->endWidget(); ?>
@@ -51,10 +51,23 @@ $this->menu=array(
 	'id'=>'domain-grid',
 	'dataProvider'=>new CArrayDataProvider($model->domains, array()),
 	'columns'=>array(
-		'name',
-		'type',
-		'master',
-		array('name'=>'last_check','value'=>'date("Y-m-d H:i:s", $data->last_check)'),
+		array(
+			'name'=>'name',
+			'header'=>Yii::t('app','domain.name'),
+			),
+		array(
+			'name'=>'type',
+			'header'=>Yii::t('app','domain.type'),
+			),
+		array(
+			'name'=>'master',
+			'header'=>Yii::t('app','domain.masterIP'),
+			),
+		array(
+			'name'=>'last_check',
+			'header'=>Yii::t('app','domain.lastCheck'),
+			'value'=>'date("Y-m-d H:i:s", $data->last_check)'
+			),
 		array(
 			'class' => 'CButtonColumn',
 	        'buttons' => array(

@@ -46,7 +46,7 @@ class User extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('username', 'required'),
-			array('username', 'unique', 'message' => 'Username already taken.'),
+			array('username', 'unique', 'message'=>Yii::t('app','user.usernameTaken')),
 			array('email', 'required'),
 			array('email', 'email'),
 			array('password', 'required'),
@@ -79,13 +79,13 @@ class User extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'username' => 'Username',
-			'password' => 'Password',
-			'email' => 'Email',
-			'admin' => 'Admin',
-			'newPassword' => 'Password',
-			'newPasswordRepeat' => 'Password (repeat)',
+			'id'=>Yii::t('app','user.id'),
+			'username'=>Yii::t('app','user.username'),
+			'password'=>Yii::t('app','user.password'),
+			'email'=>Yii::t('app','user.email'),
+			'admin'=>Yii::t('app','user.admin'),
+			'newPassword'=>Yii::t('app','user.password') ,
+			'newPasswordRepeat'=>Yii::t('app','user.passwordRepeat'),
 		);
 	}
 
@@ -95,9 +95,6 @@ class User extends CActiveRecord
 	 */
 	public function search()
 	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
-
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);

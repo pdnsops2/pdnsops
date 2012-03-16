@@ -1,11 +1,11 @@
 <?php
 $this->breadcrumbs=array(
-	'Domains',
+	Yii::t('app','page.domains'),
 );
 
 $this->menu=array(
-	array('label'=>'Create Domain', 'url'=>array('create')),
-	array('label'=>'Create Reverse Domain', 'url'=>array('createReverse')),
+	array('label'=>Yii::t('app','domain.createDomain'),'url'=>array('create')),
+	array('label'=>Yii::t('app','domain.createReverse'),'url'=>array('createReverse')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -22,12 +22,9 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Domains</h1>
+<h1><?php echo Yii::t('app','page.domains'); ?></h1>
 
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
+<p><?php echo Yii::t('app','page.searchOperators'); ?></p>
 
 <?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
@@ -56,12 +53,15 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'name',
 		'type',
 		'master',
-		array('name'=>'last_check','value'=>'date("Y-m-d H:i:s", $data->last_check)'),
+		array(
+			'name'=>'last_check',
+			'value'=>'date("Y-m-d H:i:s", $data->last_check)'
+			),
 		array(
 			'class'=>'CButtonColumn',
 			'buttons'=>	array(
 				'copy' => array(
-					'url' => 'Yii::app()->createUrl("domain/copy", array("id" => $data[\'id\']))',
+					'url'=>'Yii::app()->createUrl("domain/copy", array("id" => $data[\'id\']))',
 				),    //copy button
 			),
 			'template'=>'{update}{copy}{delete}',

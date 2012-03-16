@@ -54,19 +54,19 @@ class SettingsForm extends CFormModel
 	public function attributeLabels()
 	{
 		return array(
-			'domainMasterIP'=>'Domain Master IP',
-			'defaultTTL'=>'Default TTL',
-			'soaRetry'=>'SOA Retry',
-			'soaRefresh'=>'SOA Refresh',
-			'soaExpire'=>'SOA Expire',
-			'ns1'=>'Primary Nameserver',
-			'ns2'=>'Secondary Nameserver',
-			'ns3'=>'Tertiary Nameserver',
-			'ns4'=>'Quaternary Nameserver',
-			'ns5'=>'Quinary Nameserver',
-			'ns6'=>'Senary Nameserver',
-			'ns7'=>'Septenary Nameserver',
-			'ns8'=>'Octonary Nameserver',
+			'domainMasterIP'=>Yii::t('app','setting.domainMasterIP'),
+			'defaultTTL'=>Yii::t('app','setting.defaultTTL'),
+			'soaRetry'=>Yii::t('app','setting.soaRetry'),
+			'soaRefresh'=>Yii::t('app','setting.soaRefresh'),
+			'soaExpire'=>Yii::t('app','setting.soaExpire'),
+			'ns1'=>Yii::t('app','setting.ns1'),
+			'ns2'=>Yii::t('app','setting.ns2'),
+			'ns3'=>Yii::t('app','setting.ns3'),
+			'ns4'=>Yii::t('app','setting.ns4'),
+			'ns5'=>Yii::t('app','setting.ns5'),
+			'ns6'=>Yii::t('app','setting.ns6'),
+			'ns7'=>Yii::t('app','setting.ns7'),
+			'ns8'=>Yii::t('app','setting.ns8'),
 		);
 	}
 	
