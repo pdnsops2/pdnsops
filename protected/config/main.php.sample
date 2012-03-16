@@ -8,6 +8,7 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'PDNSOps',
+	'language'=>'en',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -32,12 +33,12 @@ return array(
 		),
 		// uncomment the following to use a MySQL database
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=pdnsops',
-			'emulatePrepare' => true,
-			'username' => '',
-			'password' => '',
-			'charset' => 'utf8',
-			'tablePrefix' => '',
+			'connectionString'=>'',
+			'emulatePrepare'=>true,
+			'username'=>'',
+			'password'=>'',
+			'charset' =>'utf8',
+			'tablePrefix'=>'',
 		),
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
