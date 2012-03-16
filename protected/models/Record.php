@@ -73,13 +73,14 @@ class Record extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('domain_id, ttl, prio, change_date', 'numerical', 'integerOnly'=>true),
+			array('domain_id, ttl, prio', 'numerical', 'integerOnly'=>true),
+			array('name,ttl,prio', 'required'),
 			array('name', 'length', 'max'=>255),
 			array('type', 'length', 'max'=>10),
 			array('content', 'length', 'max'=>4096),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, domain_id, name, type, content, ttl, prio, change_date', 'safe', 'on'=>'search'),
+			array('id, domain_id, name, type, content, ttl, prio', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -135,5 +136,14 @@ class Record extends CActiveRecord
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+	
+	public function getTypes()
+	{
+		return array(Record::TYPE_SOA => Record::TYPE_SOA, 
+					 Record::TYPE_MX => Record::TYPE_MX, 
+					 Record::TYPE_A => Record::TYPE_A, 
+					 Record::TYPE_NS => Record::TYPE_NS, 
+					 Record::TYPE_CNAME => Record::TYPE_CNAME);
 	}
 }

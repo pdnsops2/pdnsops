@@ -30,7 +30,6 @@
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
 				array('label'=>'Domains', 'url'=>array('/domain/index'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Records', 'url'=>array('/record/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Users', 'url'=>array('/user/index'), 'visible'=>!Yii::app()->user->isGuest && Yii::app()->user->getState('isAdmin')),
 				array('label'=>'Logs', 'url'=>array('/log/index'), 'visible'=>!Yii::app()->user->isGuest && Yii::app()->user->getState('isAdmin')),
 				array('label'=>'Supermasters', 'url'=>array('/supermaster/index'), 'visible'=>!Yii::app()->user->isGuest && Yii::app()->user->getState('isAdmin')),

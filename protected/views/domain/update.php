@@ -5,9 +5,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Domain', 'url'=>array('index')),
+	array('label'=>'List Domains', 'url'=>array('index')),
 	array('label'=>'Create Domain', 'url'=>array('create')),
 	array('label'=>'Create Reverse Domain', 'url'=>array('createReverse')),
+	array('label'=>'Create Record', 'url'=>Yii::app()->createUrl('record/create', array('domain'=>$model->id))),
 );
 ?>
 

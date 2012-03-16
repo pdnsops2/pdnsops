@@ -6,6 +6,8 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'List Domain', 'url'=>array('index')),
+	array('label'=>'Create Domain', 'url'=>array('create')),
+	array('label'=>'Create Reverse Domain', 'url'=>array('createReverse')),
 );
 ?>
 

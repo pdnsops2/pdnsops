@@ -27,7 +27,7 @@ class RecordController extends Controller
 	{
 		return array(
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index','create','update','delete'),
+				'actions'=>array('create','update','delete'),
 				'users'=>array('@'),
 			),
 		);
@@ -37,9 +37,13 @@ class RecordController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionCreate($domain)
 	{
 		$model=new Record;
+		$model->domain_id=$domain;
+
+		$domain=Domain::model()->findByPK($domain);
+		$model->domain=$domain;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -81,7 +85,7 @@ class RecordController extends Controller
 			if($model->save())
 			{
 				Yii::app()->audit->log('Updated record: ' . $model->id);
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('update','id'=>$model->id));
 			}
 		}
 
@@ -110,21 +114,6 @@ class RecordController extends Controller
 		}
 		else
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
-	}
-
-	/**
-	 * Lists all models.
-	 */
-	public function actionIndex()
-	{
-		$model=new Record('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Record']))
-			$model->attributes=$_GET['Record'];
-
-		$this->render('index',array(
-			'model'=>$model,
-		));
 	}
 
 	/**

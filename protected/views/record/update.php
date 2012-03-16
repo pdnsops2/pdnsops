@@ -1,12 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Records'=>array('index'),
-	'Update',
+	'Domains'=>array('domain/index'),
+	$model->domain->name=>Yii::app()->createUrl("domain/update", array('id'=>$model->domain->id)),	
+	'Update Record',
 );
 
 $this->menu=array(
-	array('label'=>'List Record', 'url'=>array('index')),
-	array('label'=>'Create Record', 'url'=>array('create')),
+	array('label'=>'List Domains', 'url'=>array('domain/index')),
+	array('label'=>'Create Domain', 'url'=>array('domain/create')),
+	array('label'=>'Create Reverse Domain', 'url'=>array('domain/createReverse')),
+	array('label'=>'Create Record', 'url'=>Yii::app()->createUrl('record/create', array('domain'=>$model->domain->id))),
 );
 ?>
 
