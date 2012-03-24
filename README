@@ -20,6 +20,18 @@ Twitter: https://twitter.com/#!/pdnsops
 Blog: http://snowulf.com/category/pdnsops/
 PowerDNS: http://wiki.powerdns.com/trac
 
+== Install ==
+* Get the latest PDNSOps2 code from 
+** https://github.com/pdnsops2/pdnsops/zipball/master
+* Get Yii 1.0 from
+** http://yii.googlecode.com/files/yii-1.1.10.r3566.tar.gz
+* Unzip both PDNSOps and Yii to the same folder (IE /var/www )
+* Rename 'yii-1.1.10.r3566' folder to 'yii'
+* Create a database and user for PDNSOps
+* Visit http://yoururlhere/pdnsops/install/
+* Follow the installers instruction
+* Done!
+
 == License ==
 This software is released under the GNU General Public License (GPL) v2. For the
 terms of the license, see the file LICENSE included in this
