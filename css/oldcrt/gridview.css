@@ -1,0 +1,124 @@
+/* -------
+* Override the standard gridview styles
+------- */
+
+.grid-view-loading
+{
+	background:url(loading.gif) no-repeat;
+}
+
+.grid-view
+{
+	padding: 15px 0;
+}
+
+.grid-view table.items
+{
+	background: #000000;
+	border-collapse: collapse;
+	width: 100%;
+	border: 1px #0000FF solid;
+}
+
+.grid-view table.items th, .grid-view table.items td
+{
+	font-size: 0.9em;
+	border: 1px 00FF00 solid;
+	padding: 0.3em;
+}
+
+.grid-view table.items th
+{
+	color: #FFFF00;
+	background: #110000;
+	text-align: center;
+}
+
+.grid-view table.items th a
+{
+	color: #FF0;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.grid-view table.items th a:hover
+{
+	color: #FFF;
+}
+
+.grid-view table.items th a.asc
+{
+	background:url(up.gif) right center no-repeat;
+	padding-right: 10px;
+}
+
+.grid-view table.items th a.desc
+{
+	background:url(down.gif) right center no-repeat;
+	padding-right: 10px;
+}
+
+.grid-view table.items tr.even
+{
+	background: #001100;
+}
+
+.grid-view table.items tr.odd
+{
+	background: #001111;
+}
+
+.grid-view table.items tr.selected
+{
+	background: #110000;
+}
+
+.grid-view table.items tr:hover
+{
+	background: #000000;
+}
+
+.grid-view .link-column img
+{
+	border: 0;
+}
+
+.grid-view .button-column
+{
+	text-align: center;
+	width: 60px;
+}
+
+.grid-view .button-column img
+{
+	border: 0;
+}
+
+.grid-view .checkbox-column
+{
+	width: 15px;
+}
+
+.grid-view .summary
+{
+	margin: 0 0 5px 0;
+	text-align: right;
+}
+
+.grid-view .pager
+{
+	margin: 5px 0 0 0;
+	text-align: right;
+}
+
+.grid-view .empty
+{
+	font-style: italic;
+}
+
+.grid-view .filters input,
+.grid-view .filters select
+{
+	width: 100%;
+	border: 1px solid #cFc;
+}
