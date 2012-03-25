@@ -11,6 +11,7 @@ return array(
 	'page.login'=>'Login',
 	'page.logout'=>'Logout',
 	'page.footer'=>'PDNSOps licensed under <a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">GNU GPL v2</a> &copy; ',
+	'page.team'=>'The <a href="http://pdnsops.com/">PDNSOps Team</a>.',
 	'page.requiredFields'=>'Fields with <span class="required">*</span> are required.',
 	'page.searchOperators'=>'You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
 or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.',

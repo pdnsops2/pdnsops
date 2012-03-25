@@ -51,7 +51,7 @@
 
 	<div id="footer">
 		<?php echo Yii::t('app', 'page.footer'); ?>
-		<?php echo date('Y'); ?> - The <a href="http://pdnsops.com/">PDNSOps Team</a>.<br/>
+		<?php echo date('Y'); ?> - <?php echo Yii::t('app', 'page.team'); ?><br/>
 		<?php echo Yii::powered(); ?>
 	</div><!-- footer -->
 
