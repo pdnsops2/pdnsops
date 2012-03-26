@@ -1,14 +1,14 @@
 == About ==
-PDNSOps2 is a Web-based application which aids in administrator of domains and 
+PDNSOps2 is a Web-based application which aids in administration of domains and 
 records for PowerDNS running the MySQL and PostgreSQL backend. PDNSOps2 is 
-targeted mainly toward the individual domain owners and small businesses, but 
-should be robust enough to be used in a larger capacity by an ISP or large big 
-host. For those who may not know, PowerDNS is a domain name server application,
+targeted mainly toward individual domain owners and small businesses, but 
+should be robust enough for use in a larger capacity by an ISP or large host. 
+For those who may not know, PowerDNS is a domain name server application,
 much like BIND, but offering alternative backends for the storage of domain 
 information.
 
-PDNSOps2 is a complete, ground up, rewrite of the original PDNSOps (Formery
-PDNSAdministrator) code base.  Mk 2 is based on the Yii Framework and uses PHP
+PDNSOps2 is a complete, ground up, rewrite of the original PDNSOps (formerly
+PDNSAdministrator) code base. Mk 2 is based on the Yii Framework and uses PHP
 PDO to better support all potential database backends.
 
 == Links ==
@@ -25,11 +25,11 @@ PowerDNS: http://wiki.powerdns.com/trac
 ** https://github.com/pdnsops2/pdnsops/zipball/master
 * Get Yii 1.0 from
 ** http://yii.googlecode.com/files/yii-1.1.10.r3566.tar.gz
-* Unzip both PDNSOps and Yii to the same folder (IE /var/www )
+* Unzip both PDNSOps and Yii to the same folder (e.g. /var/www )
 * Rename 'yii-1.1.10.r3566' folder to 'yii'
 * Create a database and user for PDNSOps
-* Visit http://yoururlhere/pdnsops/install/
-* Follow the installers instruction
+* Visit http://yourURLhere/pdnsops/install/
+* Follow the installer's instructions
 * Done!
 
 == License ==
@@ -37,4 +37,3 @@ This software is released under the GNU General Public License (GPL) v2. For the
 terms of the license, see the file LICENSE included in this
 distribution. The license is also available in many languages at
 http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-
