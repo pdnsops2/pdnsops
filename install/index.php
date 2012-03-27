@@ -119,16 +119,20 @@ else
 $prereqs['Yii Framework'] = $status;
 
 // Config dir writeable
-$path = dirname($_SERVER['SCRIPT_FILENAME']) . '/../protected/config/';
-$realpath = realpath($path); 
-if (is_writeable($realpath) === false)
+$configPath = dirname($_SERVER['SCRIPT_FILENAME']) . '/../protected/config/';
+$configReal = realpath($configPath); 
+
+$protectedPath = dirname($_SERVER['SCRIPT_FILENAME']) . '/../protected/config/';
+$protectedReal = realpath($protectedPath); 
+
+if (is_writeable($configReal) === false)
 {
-	$status = "Error: Cannot write to '$realpath'. Please change the file permissions accordingly.";
+	$status = "Error: Cannot write to '$configReal'. Please make sure that the directory '$protectedReal' and its contents are writeable.";
 	$errorCount++;
 }
-else if (is_file($realpath . '/main.php'))
+else if (is_file($configReal . '/main.php'))
 {
-	$status = "Error: Configuration '$realpath/main.php' already exists.";
+	$status = "Error: Configuration '$configReal/main.php' already exists.";
 	$errorCount++;
 }
 else
