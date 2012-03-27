@@ -50,7 +50,11 @@ $('.search-form form').submit(function(){
 	'dataProvider'=>$dataProvider,
 	'filter'=>$model,
 	'columns'=>array(
-		'name',
+		array(
+			'name'=>'name',
+			'type'=>'raw',
+            'value' => 'CHtml::link($data->name,Yii::app()->createUrl("domain/update", array("id"=>$data->id)))'
+			),
 		'type',
 		'master',
 		array(
