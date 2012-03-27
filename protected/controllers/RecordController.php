@@ -54,7 +54,7 @@ class RecordController extends Controller
 			if($model->save())
 			{
 				Yii::app()->audit->log('Created record: ' . $model->id);
-				$this->redirect(array('update','id'=>$model->id));
+				$this->redirect(array('domain/update','id'=>$domain->id));
 			}
 		}
 
@@ -85,7 +85,7 @@ class RecordController extends Controller
 			if($model->save())
 			{
 				Yii::app()->audit->log('Updated record: ' . $model->id);
-				$this->redirect(array('update','id'=>$model->id));
+				$this->redirect(array('domain/update','id'=>$model->domain->id));
 			}
 		}
 
