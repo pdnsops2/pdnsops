@@ -1,0 +1,37 @@
+.mainmenu
+{
+	background:#EEE url(bg.gif) repeat-x left top;
+}
+
+.mainmenu ul
+{
+	padding:6px 20px 5px 20px;
+	margin:0px;
+}
+
+.mainmenu ul li
+{
+	display: inline;
+}
+
+.mainmenu ul li a
+{
+	color:#000;
+	background-color:transparent;
+	font-size:11px;
+	font-weight:bold;
+	text-decoration:none;
+	padding:5px 8px;
+}
+
+.mainmenu ul li a:hover {
+	color: #FFF;
+	background-color:#33C;
+	text-decoration:none;
+}
+
+.mainmenu ul li.active a {
+	color: #000;
+	background-color:#CCC;
+	text-decoration:none;
+{
