@@ -78,6 +78,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'setting.ns6'=>'Senary Nameserver',
 	'setting.ns7'=>'Septenary Nameserver',
 	'setting.ns8'=>'Octonary Nameserver',
+	'setting.theme'=>'Theme',
 	
 	// Supermaster
 	'supermaster.create'=>'Create Supermaster',

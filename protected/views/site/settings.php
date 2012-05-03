@@ -32,6 +32,12 @@ $this->breadcrumbs=array(
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'theme'); ?>
+		<?php echo $form->dropDownList($model,'theme',$model->getThemes()); ?>
+		<?php echo $form->error($model,'theme'); ?>
+	</div>
+	
+	<div class="row">
 		<?php echo $form->labelEx($model,'domainMasterIP'); ?>
 		<?php echo $form->textField($model,'domainMasterIP'); ?>
 		<?php echo $form->error($model,'domainMasterIP'); ?>

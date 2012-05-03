@@ -79,7 +79,8 @@ INSERT INTO setting (`key`, `value`) VALUES
 	('ns5', ''),
 	('ns6', ''),
 	('ns7', ''),
-	('ns8', '');
+	('ns8', ''),
+	('theme', '');
 
 -- Foreign Keys
 ALTER TABLE `domain_user` ADD FOREIGN KEY `fk_domain_user` (`domain_id`) REFERENCES `domains` (`id`);

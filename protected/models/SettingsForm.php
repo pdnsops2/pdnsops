@@ -32,6 +32,8 @@ class SettingsForm extends CFormModel
 	public $ns7;
 
 	public $ns8;
+	
+	public $theme;
 
 	/**
 	 * Declares the validation rules.
@@ -39,7 +41,7 @@ class SettingsForm extends CFormModel
 	public function rules()
 	{
 		return array(
-			array('defaultTTL,soaRetry,soaRefresh,soaExpire', 'required'),
+			array('defaultTTL,soaRetry,soaRefresh,soaExpire,theme', 'required'),
 			array('defaultTTL,soaRetry,soaRefresh,soaExpire', 'numerical', 'integerOnly'=>true),
 			array('domainMasterIP,ns1,ns2,ns3,ns4,ns5,ns6,ns7,ns8', 'length', 'max'=>15),
 			array('domainMasterIP,ns1,ns2,ns3,ns4,ns5,ns6,ns7,ns8', 'ext.validators.FIpValidator', 'version'=>'ipv4'),
@@ -67,6 +69,7 @@ class SettingsForm extends CFormModel
 			'ns6'=>Yii::t('app','setting.ns6'),
 			'ns7'=>Yii::t('app','setting.ns7'),
 			'ns8'=>Yii::t('app','setting.ns8'),
+			'theme'=>Yii::t('app','setting.theme'),
 		);
 	}
 	
@@ -90,5 +93,27 @@ class SettingsForm extends CFormModel
 			$setting->value = $this->{$prop->name};
 			$setting->save(false);
 		}		
+	}
+	
+	public function getThemes() 
+	{
+		$result = array();
+		$themeDir = getcwd() . '/themes/';
+
+		if ($handle = opendir($themeDir)) 
+		{
+			while (false !== ($entry = readdir($handle))) 
+			{
+				if ($entry == '.' || $entry == '..')
+					continue;
+
+				if (is_dir($themeDir . $entry))
+					$result[$entry] = $entry;
+			}
+			
+			closedir($handle);
+		}
+	
+		return $result;
 	}
 }
