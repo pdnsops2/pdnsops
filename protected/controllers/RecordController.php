@@ -51,6 +51,7 @@ class RecordController extends Controller
 		if(isset($_POST['Record']))
 		{
 			$model->attributes=$_POST['Record'];
+            $model->name = $model->name . '.'.$model->domain->name;
 			if($model->save())
 			{
 				Yii::app()->audit->log('Created record: ' . $model->id);
