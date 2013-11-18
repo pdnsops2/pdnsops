@@ -10,6 +10,15 @@ function createConnectionString($driver, $host, $port, $database)
 	return "$driver:dbname=$database;host=$host" . ($port != '' ? ';port=' . $port : '');
 }
 
+function getRequest($key, $method = '_REQUEST') {
+    global ${$method};
+    if (isset(${$method}[$key])) {
+        return ${$method}[$key];
+    }
+
+    return false;
+}
+
 function connect($cstr, $user, $password, $database)
 {
 	$db = new PDO($cstr,$user,$password);
@@ -200,15 +209,15 @@ else
 	echo '<input type="text" readonly="readonly" value="' . $_POST['driver'] . '" id="driver" name="driver" /><br />';
 }
 echo '<label for="host">Host:</label><br />';
-echo '<input type="text" ' . ($errorCount > 0 ? '' : 'readonly="readonly" ') . ' id="host" name="host" value="' . $_POST['host'] . '" /><br />';
+echo '<input type="text" ' . ($errorCount > 0 ? '' : 'readonly="readonly" ') . ' id="host" name="host" value="' . getRequest('host') . '" /><br />';
 echo '<label for="port">Port:</label><br />';
-echo '<input type="text" ' . ($errorCount > 0 ? '' : 'readonly="readonly" ') . ' id="port" name="port" value="' . $_POST['port'] . '" /><br />';
+echo '<input type="text" ' . ($errorCount > 0 ? '' : 'readonly="readonly" ') . ' id="port" name="port" value="' . getRequest('port') . '" /><br />';
 echo '<label for="database">Database:</label><br />';
-echo '<input type="text" ' . ($errorCount > 0 ? '' : 'readonly="readonly" ') . ' id="database" name="database" value="' . $_POST['database'] . '" /><br />';
+echo '<input type="text" ' . ($errorCount > 0 ? '' : 'readonly="readonly" ') . ' id="database" name="database" value="' . getRequest('database') . '" /><br />';
 echo '<label for="user">User:</label><br />';
-echo '<input type="text" ' . ($errorCount > 0 ? '' : 'readonly="readonly" ') . ' id="user" name="user" value="' . $_POST['user'] . '" /><br />';
+echo '<input type="text" ' . ($errorCount > 0 ? '' : 'readonly="readonly" ') . ' id="user" name="user" value="' . getRequest('user') . '" /><br />';
 echo '<label for="password">Password:</label><br />';
-echo '<input type="password" ' . ($errorCount > 0 ? '' : 'readonly="readonly" ') . ' id="password" name="password" value="' . $_POST['password'] . '" /><br /><br />';
+echo '<input type="password" ' . ($errorCount > 0 ? '' : 'readonly="readonly" ') . ' id="password" name="password" value="' . getRequest('password') . '" /><br /><br />';
 
 if ($errorCount > 0) {
 ?>
