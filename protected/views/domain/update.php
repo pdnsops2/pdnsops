@@ -11,6 +11,15 @@ $this->menu=array(
 	array('label'=>Yii::t('app','domain.copyDomain'),'url'=>Yii::app()->createUrl('domain/copy', array('id'=>$model->id))),	
 	array('label'=>Yii::t('app','record.create'),'url'=>Yii::app()->createUrl('record/create', array('domain'=>$model->id))),
 );
+
+/*
+$dataProvider = new CActiveDataProvider('Record', array(
+    'criteria' => array(
+        'condition' => 'domain_id = 2'
+    )
+))
+*/
+$dataProvider = $domain_records->search();
 ?>
 
 <h1><?php echo Yii::t('app','domain.updateDomain') . ' ' . $model->name; ?></h1>
@@ -21,7 +30,8 @@ $this->menu=array(
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'record-grid',
-	'dataProvider'=>new CArrayDataProvider($model->records, array()),
+	//'dataProvider'=>new CArrayDataProvider($model->records, array()),
+    'dataProvider'=> $dataProvider,
 	'columns'=>array(
 		array(
 			'name'=>'name',
