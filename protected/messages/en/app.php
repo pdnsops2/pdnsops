@@ -1,6 +1,7 @@
 <?php
 return array(
 	// Page
+    'page.menu'=>'Menu',
 	'page.home'=>'Home',
 	'page.domains'=>'Domains',
 	'page.records'=>'Records',
