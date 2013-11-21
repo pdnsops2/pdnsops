@@ -19,7 +19,7 @@ $dataProvider = new CActiveDataProvider('Record', array(
     )
 ))
 */
-$dataProvider = $domain_records->search();
+//$dataProvider = $domain_records->search();
 ?>
 
 <h1><?php echo Yii::t('app','domain.updateDomain') . ' ' . $model->name; ?></h1>
@@ -28,48 +28,26 @@ $dataProvider = $domain_records->search();
 
 <h2><?php echo yii::t('app','page.records'); ?></h2>
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+<?php $this->widget('application.extensions.tablesorter.Sorter', array(
 	'id'=>'record-grid',
 	//'dataProvider'=>new CArrayDataProvider($model->records, array()),
-    'dataProvider'=> $dataProvider,
+    'data'=> $domain_records,
 	'columns'=>array(
-		array(
-			'name'=>'name',
-			'header'=>Yii::t('app','record.name'),
-			),
-		array(
-			'name'=>'type',
-			'header'=>Yii::t('app','record.type'),
-			),
-		array(
-			'name'=>'content',
-			'header'=>Yii::t('app','record.content'),
-			),
-		array(
-			'name'=>'ttl',
-			'header'=>Yii::t('app','record.ttl'),
-			),
-		array(
-			'name'=>'prio',
-			'header'=>Yii::t('app','record.prio'),
-			),
-		array(
-			'name'=>'change_date',
-			'header'=>Yii::t('app','record.change_date'),
-			'value'=>'date("Y-m-d H:i:s", $data->change_date)',
-			),
-		array(
-			'class' => 'CButtonColumn',
-	        'buttons' => array(
-				'update' => array(
-					'url' => 'Yii::app()->createUrl("record/update", array("id" => $data[\'id\']))',
-				),    // update button
-				'delete' => array(
-					'url' => 'Yii::app()->createUrl("record/delete", array("id" => $data[\'id\']))',
-				),    // delete button
-			),
-			'template'=>'{update}{delete}',
-		),
+        'name',
+        'type',
+        'content',
+        'ttl',
+        'prio',
+        array('name' => 'change_date',
+              'label' => 'Last updated',
+              'value' => 'date("m-d-Y ", $data->change_date)')),
+    'filters'=>array(
+        '',
+        'filter-select',
+        '',
+        '',
+        '',
+        ''
 	),
 )); ?>
 

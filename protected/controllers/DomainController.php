@@ -280,8 +280,10 @@ class DomainController extends Controller
 			}
 		}
 
+
         $records = new Record();
         $records->domain_id = $id;
+        $records=$records->findAll('t.domain_id = :domain_id', array(':domain_id' => $id));
 
 		$this->render('update',array(
 				'model'=>$model,
