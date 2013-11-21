@@ -1,0 +1,9 @@
+# cache directories
+Thumbs.db
+.DS_Store
+
+#phpstorm project files
+.idea
+.sass-cache
+node_modules
+npm-debug.log

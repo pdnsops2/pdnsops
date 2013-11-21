@@ -1,0 +1,28 @@
+{
+    "name": "drmabuse/yii-bootstrap-3-module",
+    "description": "Yii Web Widgets",
+    "keywords": [
+        "yii",
+        "framework",
+        "module"
+    ],
+    "homepage": "https://bitbucket.org/DrMabuse/yii-bootstrap-3-module",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "version": "0.0.7",
+    "authors": [
+        {
+            "name": "Pascal Brewing",
+            "email": "pascalbrewing@gmail.com",
+            "homepage": "http://pascal-breiwng.de/",
+            "role": "Founder and development"
+        }
+    ],
+    "support": {
+        "issues": "https://bitbucket.org/DrMabuse/yii-bootstrap-3-module/issues?status=new&status=open",
+        "source": "https://bitbucket.org/DrMabuse/yii-bootstrap-3-module/src"
+    },
+    "require": {
+        "php": ">=5.3.0"
+    }
+}
