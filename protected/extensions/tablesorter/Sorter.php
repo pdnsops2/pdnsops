@@ -49,10 +49,12 @@ class Sorter extends CWidget
         //Intialize CSS
         $cs->registerCssFile($bu . '/css/tablesorter.css');
 		$cs->registerCssFile($bu . '/css/tablesorter.pager.css');
+        $cs->registerCssFile($bu . '/addons/pager/jquery.tablesorter.pager.css');
 		//$cs->registerCssFile($bu . '/css/bootstrap.css');
 		//Intialize Jquery
 		$cs->registerScriptFile($bu . '/js/tablesorter.js');
 		$cs->registerScriptFile($bu . '/js/tablesorter.pager.js');
+        $cs->registerScriptFile($bu . '/addons/pager/jquery.tablesorter.pager.js');
 		$cs->registerScriptFile($bu . '/js/tablesorter.widgets.js');
 		$cs->registerScriptFile($bu . '/js/tablesorter.widgets-filter-formatter.js');
 		$cs->registerScriptFile($bu . '/js/scripts.js');
@@ -142,18 +144,19 @@ class Sorter extends CWidget
 					<button type="button" class="btn next"><i class="icon-arrow-right glyphicon glyphicon-arrow-right"></i></button>
 					<button type="button" class="btn last"><i class="icon-step-forward glyphicon glyphicon-step-forward"></i></button>
 					<select class="pagesize input-mini" title="Select page size">
-						<option selected="selected" value="50">50</option>
-						<option value="50">50</option>
+						<option selected="selected" value="2">2</option>
+						<option value="3">3</option>
 						<option value="100">100</option>
 						<option value="200">200</option>
 					</select>
-					<select class="pagenum input-mini" title="Select page number"></select>
+
 				</th>
 			  </tr>';
 		echo "</tfoot>\n";
 		//Table footer end
 		
 		echo "</table>\n";
+
 		//Table end
 	}
 	

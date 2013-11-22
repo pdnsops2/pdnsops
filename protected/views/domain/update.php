@@ -25,7 +25,7 @@ $dataProvider = new CActiveDataProvider('Record', array(
 <h1><?php echo Yii::t('app','domain.updateDomain') . ' ' . $model->name; ?></h1>
 
 <?php echo $this->renderPartial('_formUpdate', array('model'=>$model)); ?>
-
+<div id="display"></div>
 <h2><?php echo yii::t('app','page.records'); ?></h2>
 
 <?php $this->widget('application.extensions.tablesorter.Sorter', array(
