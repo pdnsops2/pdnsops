@@ -1,6 +1,7 @@
 <?php
 return array(
 	// Page
+    'page.domain_type' => 'Domain Type',
     'page.menu'=>'Menu',
 	'page.home'=>'Home',
 	'page.domains'=>'Domains',

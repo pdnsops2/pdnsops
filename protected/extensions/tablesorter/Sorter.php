@@ -144,10 +144,10 @@ class Sorter extends CWidget
 					<button type="button" class="btn next"><i class="icon-arrow-right glyphicon glyphicon-arrow-right"></i></button>
 					<button type="button" class="btn last"><i class="icon-step-forward glyphicon glyphicon-step-forward"></i></button>
 					<select class="pagesize input-mini" title="Select page size">
-						<option selected="selected" value="2">2</option>
-						<option value="3">3</option>
+						<option selected="selected" value="50">50</option>
 						<option value="100">100</option>
 						<option value="200">200</option>
+						<option value="500">200</option>
 					</select>
 
 				</th>

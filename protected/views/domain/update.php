@@ -3,7 +3,7 @@ $this->breadcrumbs=array(
 	Yii::t('app','page.domains')=>array('index'),
 	Yii::t('app','domain.updateDomain'),
 );
-
+/*
 $this->menu=array(
 	array('label'=>Yii::t('app','domain.listDomains'),'url'=>array('index')),
 	array('label'=>Yii::t('app','domain.createDomain'),'url'=>array('create')),
@@ -12,7 +12,7 @@ $this->menu=array(
 	array('label'=>Yii::t('app','record.create'),'url'=>Yii::app()->createUrl('record/create', array('domain'=>$model->id))),
 );
 
-/*
+
 $dataProvider = new CActiveDataProvider('Record', array(
     'criteria' => array(
         'condition' => 'domain_id = 2'
@@ -24,9 +24,32 @@ $dataProvider = new CActiveDataProvider('Record', array(
 
 <h1><?php echo Yii::t('app','domain.updateDomain') . ' ' . $model->name; ?></h1>
 
-<?php echo $this->renderPartial('_formUpdate', array('model'=>$model)); ?>
+
+
+
 <div id="display"></div>
-<h2><?php echo yii::t('app','page.records'); ?></h2>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="panel panel-primary">
+                <!-- Default panel contents -->
+                <div class="panel-heading"><?php echo yii::t('app','page.domain_type'); ?></div>
+                <div class="panel-body">
+                    <?php echo $this->renderPartial('_formUpdate', array('model'=>$model)); ?>
+                </div>
+            </div>
+        </div><!-- /.col-md-4 -->
+        <div class="col-lg-4">
+            <div class="panel panel-primary">
+                <!-- Default panel contents -->
+                <div class="panel-heading"><?php echo yii::t('app','page.records'); ?></div>
+                <div class="panel-body center-tbl">
+                    <a class="btn btn-primary" href="<?php echo Yii::app()->createUrl('record/create', array('domain'=>$model->id)) ?>">Add Zone Record</a>
+                    <a class="btn btn-primary" href="<?php echo Yii::app()->createUrl('domain/copy', array('id'=>$model->id)) ?>">Copy Domain</a>
+                </div>
+            </div>
+        </div><!-- /.col-md-8 -->
+    </div>
 
 <?php $this->widget('application.extensions.tablesorter.Sorter', array(
 	'id'=>'record-grid',
