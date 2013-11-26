@@ -30,19 +30,19 @@ $dataProvider = new CActiveDataProvider('Record', array(
 <div id="display"></div>
 
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-md-4">
             <div class="panel panel-primary">
                 <!-- Default panel contents -->
-                <div class="panel-heading"><?php echo yii::t('app','page.domain_type'); ?></div>
+                <div class="panel-heading"><i class="fa fa-sitemap"></i> <?php echo yii::t('app','page.domain_type'); ?></div>
                 <div class="panel-body">
                     <?php echo $this->renderPartial('_formUpdate', array('model'=>$model)); ?>
                 </div>
             </div>
         </div><!-- /.col-md-4 -->
-        <div class="col-lg-4">
+        <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-primary">
                 <!-- Default panel contents -->
-                <div class="panel-heading"><?php echo yii::t('app','page.records'); ?></div>
+                <div class="panel-heading"><i class="fa fa-plus-square"></i> <?php echo yii::t('app','page.records'); ?></div>
                 <div class="panel-body center-tbl">
                     <a class="btn btn-primary" href="<?php echo Yii::app()->createUrl('record/create', array('domain'=>$model->id)) ?>">Add Zone Record</a>
                     <a class="btn btn-primary" href="<?php echo Yii::app()->createUrl('domain/copy', array('id'=>$model->id)) ?>">Copy Domain</a>

@@ -1,6 +1,6 @@
 <?php $form=$this->beginWidget('CActiveForm', array(
     'id'=>'domain-form',
-    'enableAjaxValidation'=>true,
+    'enableAjaxValidation'=>false,
     'htmlOptions' => array('class' => 'form-horizontal', 'role' => 'form')
 )); ?>
 
