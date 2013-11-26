@@ -279,8 +279,15 @@ class DomainController extends Controller
 				$this->redirect(array('update','id'=>$model->id));
 			}
 		}
-			$this->render('update',array(
+
+
+        $records = new Record();
+        $records->domain_id = $id;
+        $records=$records->findAll('t.domain_id = :domain_id', array(':domain_id' => $id));
+
+		$this->render('update',array(
 				'model'=>$model,
+                'domain_records'=> $records
 		));
 	}
 

@@ -3,7 +3,7 @@ $this->breadcrumbs=array(
 	Yii::t('app','page.domains')=>array('index'),
 	Yii::t('app','domain.updateDomain'),
 );
-
+/*
 $this->menu=array(
 	array('label'=>Yii::t('app','domain.listDomains'),'url'=>array('index')),
 	array('label'=>Yii::t('app','domain.createDomain'),'url'=>array('create')),
@@ -11,55 +11,66 @@ $this->menu=array(
 	array('label'=>Yii::t('app','domain.copyDomain'),'url'=>Yii::app()->createUrl('domain/copy', array('id'=>$model->id))),	
 	array('label'=>Yii::t('app','record.create'),'url'=>Yii::app()->createUrl('record/create', array('domain'=>$model->id))),
 );
+
+
+$dataProvider = new CActiveDataProvider('Record', array(
+    'criteria' => array(
+        'condition' => 'domain_id = 2'
+    )
+))
+*/
+//$dataProvider = $domain_records->search();
 ?>
 
 <h1><?php echo Yii::t('app','domain.updateDomain') . ' ' . $model->name; ?></h1>
 
-<?php echo $this->renderPartial('_formUpdate', array('model'=>$model)); ?>
 
-<h2><?php echo yii::t('app','page.records'); ?></h2>
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+
+<div id="display"></div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-primary">
+                <!-- Default panel contents -->
+                <div class="panel-heading"><i class="fa fa-sitemap"></i> <?php echo yii::t('app','page.domain_type'); ?></div>
+                <div class="panel-body">
+                    <?php echo $this->renderPartial('_formUpdate', array('model'=>$model)); ?>
+                </div>
+            </div>
+        </div><!-- /.col-md-4 -->
+        <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-primary">
+                <!-- Default panel contents -->
+                <div class="panel-heading"><i class="fa fa-plus-square"></i> <?php echo yii::t('app','page.records'); ?></div>
+                <div class="panel-body center-tbl">
+                    <a class="btn btn-primary" href="<?php echo Yii::app()->createUrl('record/create', array('domain'=>$model->id)) ?>">Add Zone Record</a>
+                    <a class="btn btn-primary" href="<?php echo Yii::app()->createUrl('domain/copy', array('id'=>$model->id)) ?>">Copy Domain</a>
+                </div>
+            </div>
+        </div><!-- /.col-md-8 -->
+    </div>
+
+<?php $this->widget('application.extensions.tablesorter.Sorter', array(
 	'id'=>'record-grid',
-	'dataProvider'=>new CArrayDataProvider($model->records, array()),
+	//'dataProvider'=>new CArrayDataProvider($model->records, array()),
+    'data'=> $domain_records,
 	'columns'=>array(
-		array(
-			'name'=>'name',
-			'header'=>Yii::t('app','record.name'),
-			),
-		array(
-			'name'=>'type',
-			'header'=>Yii::t('app','record.type'),
-			),
-		array(
-			'name'=>'content',
-			'header'=>Yii::t('app','record.content'),
-			),
-		array(
-			'name'=>'ttl',
-			'header'=>Yii::t('app','record.ttl'),
-			),
-		array(
-			'name'=>'prio',
-			'header'=>Yii::t('app','record.prio'),
-			),
-		array(
-			'name'=>'change_date',
-			'header'=>Yii::t('app','record.change_date'),
-			'value'=>'date("Y-m-d H:i:s", $data->change_date)',
-			),
-		array(
-			'class' => 'CButtonColumn',
-	        'buttons' => array(
-				'update' => array(
-					'url' => 'Yii::app()->createUrl("record/update", array("id" => $data[\'id\']))',
-				),    // update button
-				'delete' => array(
-					'url' => 'Yii::app()->createUrl("record/delete", array("id" => $data[\'id\']))',
-				),    // delete button
-			),
-			'template'=>'{update}{delete}',
-		),
+        'name',
+        'type',
+        'content',
+        'ttl',
+        'prio',
+        array('name' => 'change_date',
+              'label' => 'Last updated',
+              'value' => 'date("m-d-Y ", $data->change_date)')),
+    'filters'=>array(
+        '',
+        'filter-select',
+        '',
+        '',
+        '',
+        ''
 	),
 )); ?>
 

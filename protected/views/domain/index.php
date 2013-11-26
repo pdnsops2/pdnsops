@@ -45,7 +45,7 @@ $('.search-form form').submit(function(){
 		$dataProvider = new CArrayDataProvider($user->domains, array());
 	}
 
-	  $this->widget('zii.widgets.grid.CGridView', array(
+	$this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'domain-grid',
 	'dataProvider'=>$dataProvider,
 	'filter'=>$model,
